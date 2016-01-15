@@ -1,0 +1,110 @@
+#########################################
+# Modified by : http://www.NoobsLab.com #
+#########################################
+######################
+# - Conky settings - #
+######################
+update_interval 1
+total_run_times 0
+net_avg_samples 1
+cpu_avg_samples 1
+
+imlib_cache_size 0
+double_buffer yes
+no_buffers yes
+format_human_readable
+draw_graph_borders no
+
+#####################
+# - Text settings - #
+#####################
+use_xft yes
+xftfont Calibri Bold Caps:size=7.5
+override_utf8_locale yes
+text_buffer_size 2048
+
+#############################
+# - Window specifications - #
+#############################
+own_window_class Conky
+own_window yes
+own_window_type conky
+own_window_transparent no
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+alignment middle_right
+gap_x -35
+gap_y 0
+minimum_size 130 600
+maximum_width 182
+
+default_bar_size 60 8
+
+#########################
+# - Graphics settings - #
+#########################
+draw_shades no
+
+default_color 6D6D6D
+
+color0 6D6D6D
+color1 red
+color2 6D6D6D
+
+################
+# - Load Lua - #
+################
+lua_load ~/.conky/Malice-Tab/scripts/bargraph_small.lua
+lua_draw_hook_post main_bars
+
+own_window_argb_value 0
+own_window_argb_visual no
+own_window_colour 000000
+TEXT
+########################
+# - Background Image - #
+########################
+${image ~/.conky/Malice-Tab/images/bg.png -p 0,0 -s 147x489} 
+###############
+# - Network - #
+###############
+${goto 50}${voffset 10}${font Calibri Bold Caps:size=8} Network${font}
+${goto 60}${voffset 7}DL
+${goto 60}${voffset 5}UL
+${goto 60}${voffset 3}IP     ${if_up wlan0}${addr wlan0}${endif}${if_up eth0}${addr eth0}
+##############
+# - Memory - #
+##############
+${goto 50}${voffset 10}${font Calibri Bold Caps:size=8} Memory${font}
+
+${goto 78}${voffset 5}Ram ${goto 120}${memperc}%
+${goto 78}${voffset 15}Swap ${goto 120}${swapperc}%
+###########
+# - CPU - #
+###########
+${goto 45}${voffset 20}${font Calibri Bold Caps:size=8} CPU${font}
+${goto 50}${voffset 5}Processor${goto 120}${cpu cpu}%
+${goto 78}${voffset -5}${cpugraph cpu0 20,70 }
+${goto 48}${voffset -3}Running:  ${running_processes}
+${goto 50}${voffset -3}${top name 1}${top mem 1} ${top cpu 1}
+${goto 50}${voffset -3}${top name 2}${top mem 2} ${top cpu 2}
+${goto 50}${voffset -3}${top name 3}${top mem 3} ${top cpu 3}
+${goto 50}${voffset -3}${top name 4}${top mem 4} ${top cpu 4}
+##############
+# - System - #
+##############
+${goto 50}${voffset 17}${font Calibri Bold Caps:size=8} System${font}
+${goto 55}${font Lucida Grande:size=7}✖ ${font}${pre_exec cat /etc/issue.net}
+${goto 55}${font Lucida Grande:size=7}✖ ${font}${kernel}
+${goto 55}${font Lucida Grande:size=7}✖ ${font}Uptime: ${uptime_short}
+${goto 55}${font Lucida Grande:size=7}✖ ${font}HDD Temp: ${hddtemp /dev/sda} °C
+${goto 55}${font Lucida Grande:size=7}✖ ${font}Core Temp: ${execi 8 sensors | grep -A 1 'temp1' | cut -c16-17 | sed '/^$/d'} °C
+
+##############
+# - System - #
+############## 
+${goto 50}${voffset 15}${font Calibri Bold Caps:size=8} Hard Drive${font}
+${goto 120}${voffset 10}${fs_used_perc /}%
+${goto 60}${voffset -12}Root:
+${goto 120}${voffset 18}${fs_used_perc /home}%
+${goto 60}${voffset -12}Home:

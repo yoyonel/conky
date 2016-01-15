@@ -1,0 +1,70 @@
+###############################
+### http://www.NoobsLab.com ###
+###############################
+background yes
+font Caliban:size=8
+xftfont Caliban:size=8
+use_xft yes
+xftalpha 0.5
+update_interval 1.0
+total_run_times 0
+own_window_class conky
+own_window yes
+own_window_type override
+own_window_transparent no
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+double_buffer yes
+draw_shades yes
+draw_outline yes
+draw_borders no
+draw_graph_borders no
+minimum_size 0 0
+maximum_width 350
+default_color ffffff
+default_shade_color 000000
+draw_outline no
+alignment top_right
+gap_x 10
+gap_y 36
+no_buffers yes
+cpu_avg_samples 1
+override_utf8_locale no
+uppercase no
+use_spacer none
+
+own_window_argb_value 102
+own_window_argb_visual yes
+own_window_colour 204A87
+TEXT
+${image ~/.conky/icons/logo.png -p 18,0 -s 45x45}${goto 74}${font Poky:pixelsize=20}r${font} ${voffset -16} Kernel: $kernel $machine
+${goto 99}Uptime: $uptime_short 
+${goto 99}Users logon: $user_number
+${voffset -6}${goto 70}${font Poky:pixelsize=22}T${font}${color 98FB98}${voffset -8} ${battery_bar 6,150 BAT0}${color}  ${battery BAT0} 
+${voffset -8}
+${goto 33}${font :style=Bold:pixelsize=12}CPU${voffset -8} ${font Poky:pixelsize=22}P${font} ${voffset -5}${freq_g 1} GHz ${alignc}${voffset -15} ${cpugraph  CPU 20,80 FFF6CD FF0B00 -t}
+${voffset -20}${goto 246}${font :style=Bold:pixelsize=14}${cpu CPU}%${font}
+
+
+${voffset -8}${goto 34}${font :style=Bold:pixelsize=12}MEM${font}${voffset -19} ${font Poky:pixelsize=32}a${font}   ${voffset -22}  RAM: $mem v $memmax
+${alignr 50}${color A0CCFF}   ${membar 4,180}${color}
+${goto 120} Swap: $swap v $swapmax
+${goto 120} Load: ${color C7FF8E}$loadavg${color}
+${goto 120} Processes: ${color C7FF8E}$processes${color}
+${goto 120} Running: $running_processes ${color}
+
+
+${voffset -8}${goto 33}${font :style=Bold:pixelsize=12}NET${font}${voffset -19} ${font Poky:pixelsize=32}w${font}
+
+${goto 118}${font Poky:pixelsize=22}i${font}${voffset -40} Download: ${downspeed eth0}
+${goto 148}${voffset -6}${downspeedgraph eth0 25,150 D9FFDF A5FEB3}
+${goto 148}${voffset -4}Upload: ${upspeed eth0}
+${goto 148}${voffset -6}${upspeedgraph eth0 25,150 FEC2A5 FA9C6F}
+${goto 118}${font Poky:pixelsize=22}e${font}
+${goto 148}${voffset -26}Total:  down:${totaldown eth0} 
+${goto 189}up:${totalup eth0}
+
+${goto 30}${font Poky:pixelsize=52}y${font}
+${voffset -40}${alignc}Root: ${fs_free /} / ${fs_size /} 
+${alignc}${color 83A1FF}${fs_bar 4,150 /}${color}
+${alignc}Home: ${fs_free /home} / ${fs_size /home}
+${alignc}${color 83A1FF}${fs_bar 4,150 /home}${color}
