@@ -106,9 +106,9 @@ function conky_nowplaying(refresh)
 	if cmus_info.position and cmus_info.duration then 
 		string=string..prettyize(cmus_info.position).."/"..prettyize(cmus_info.duration).." ${lua_bar "..(20*coef_zoom_font).." playingbar}".."\n"
 	end
-	if cmus_info.album then string=string..color("lightgrey")..font(17).."Album: "..color("black")..font(20)..cmus_info.album.."\n" end
-	if cmus_info.date then string=string..color("lightgrey")..font(17).."Date: "..color("black")..font(20)..cmus_info.date.."\n" end
-	if cmus_info.tracknumber then string=string..color("lightgrey")..font(17).."Track: "..color("black")..font(20)..cmus_info.tracknumber.."\n" end
+	if cmus_info.album then string=string..color("grey")..font(17).."Album: "..color("")..font(20)..cmus_info.album.."\n" end
+	if cmus_info.date then string=string..color("grey")..font(17).."Date: "..color("")..font(20)..cmus_info.date.."\n" end
+	if cmus_info.tracknumber then string=string..color("grey")..font(17).."Track: "..color("")..font(20)..cmus_info.tracknumber.."\n" end
 
 	-- url: https://forums.gentoo.org/viewtopic-t-935596-view-previous.html?sid=5aec251ed5f9f605e83f4615cae825a9
 	-- to fixe conky font size and shades
