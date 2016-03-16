@@ -24,7 +24,8 @@ gap_y 30
 minimum_size 190 350
 maximum_width 320
 own_window yes
-own_window_type conky
+#own_window_type conky
+own_window_type override
 own_window_transparent yes
 own_window_hints undecorate,sticky,skip_taskbar,skip_pager,below
 border_inner_margin 0
@@ -95,5 +96,5 @@ ${color7}Total Download: ${color2}${totaldown eth0} ${alignr}${color7}Total Uplo
 ${color9}CMUS $hr
 ${execi 2 /home/latty/conky/scripts/CMUS/script_to_get_track_name_now_playing.sh}
 
-${image ~/.conky/logo.png -p 0,10 -s 75x75}
+${image ./yoyo_lama.jpg -p 0,10 -s 75x75}
 
